@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.cardview.CircularRevealCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#979797"
+    android:layout_marginTop="2dp"
+    android:theme="@style/Theme.Material3.DayNight">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image_chat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_profile"
+        android:theme="@style/Theme.Material3.DayNight"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_name_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chatname"
+        android:layout_toEndOf="@id/profile_image_chat"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="100dp"
+        android:layout_gravity="center_vertical"
+        android:theme="@style/Theme.Material3.DayNight"/>
+
+    <TextView
+        android:id="@+id/chat_id"
+        android:visibility="gone"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:text=""/>
+</com.google.android.material.circularreveal.cardview.CircularRevealCardView>

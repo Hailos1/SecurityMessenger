@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/Main"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Material3.DayNight">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/Theme.Material3.DayNight">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id = "@+id/profile_image"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_profile"
+                android:tint="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textSize="18sp"
+                android:layout_marginStart="25dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="50dp"
+        android:contentDescription="Enter How Much Cookies You Want"
+        android:theme="@style/Theme.Material3.DayNight"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id = "@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-50dp"
+        android:contentDescription="Enter How Much Cookies You Want"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/Theme.Material3.DayNight"/>
+    <include layout="@layout/content_main" />
+</LinearLayout>

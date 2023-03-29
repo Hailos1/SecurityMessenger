@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="5dp"
+    android:layout_marginBottom="2dp"
+    android:theme="@style/Theme.Material3.DynamicColors.Dark">
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/profile_image_inchat"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:src="@drawable/ic_profile"/>-->
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_name_inchat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="2dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/message_id"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:minWidth="50dp"
+        android:maxWidth="300dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@drawable/border_radius"
+        android:layout_marginTop="35dp"
+        android:paddingVertical="2dp"
+        android:paddingHorizontal="6dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="10dp"
+        android:text="Message" />
+
+</RelativeLayout>

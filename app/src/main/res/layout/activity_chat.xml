@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#140025"
+    tools:context=".ChatActivity"
+    android:theme="@style/Theme.Material3.Light">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/Theme.Material3.DayNight"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="60dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/new_message"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="message..."
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="#656565"
+        android:theme="@style/Theme.Material3.DayNight"/>
+
+    <ImageView
+        android:id="@+id/send_button"
+        android:layout_width="67dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:src="@drawable/convert" />
+</RelativeLayout>

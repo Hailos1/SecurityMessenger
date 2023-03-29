@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.SearchFragment">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/search_edit"
+        android:background="@drawable/border_radius"
+        android:textColor="@color/black"
+        android:paddingHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:hint="Введите UserId"
+        android:textColorHint="#99000000"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_edit"
+        android:layout_margin="1dp"/>
+
+</RelativeLayout>

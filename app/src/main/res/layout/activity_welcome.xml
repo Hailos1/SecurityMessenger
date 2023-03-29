@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    tools:context=".WelcomeActivity"
+    android:background="@android:color/white"
+    android:theme="@style/Theme.Material3.DayNight">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:src="@drawable/secchat"/>
+
+    <Button
+        android:id="@+id/welcome_enter_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вход"
+        android:background="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/welcome_register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Регистрация"
+        android:background="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
