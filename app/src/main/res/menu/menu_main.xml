@@ -3,6 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.securitymessenger.MainActivity">
     <item
+        android:id="@+id/settings_blocked_chats"
+        android:orderInCategory="98"
+        android:title="Блок-лист"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/settings_settings"
+        android:orderInCategory="99"
+        android:title="Настройки"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/settings_exit"
         android:orderInCategory="100"
         android:title="Выйти"

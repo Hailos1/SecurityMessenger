@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
     android:background="@android:color/white"
-    tools:context=".RegisterActivity"
     android:theme="@style/Theme.Material3.Light">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.Material3.Light">
-
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_register"
+            android:id="@+id/toolbar_settings"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.Material3.Light"/>
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
@@ -30,70 +28,40 @@
         android:layout_centerInParent="true">
 
         <EditText
-            android:id="@+id/user_userid_register"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Userid"
-            android:inputType="text"
-            android:layout_marginTop="15dp"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/user_name_register"
+            android:id="@+id/settings_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Name"
+            android:text=""
             android:inputType="text"
             android:layout_marginTop="15dp"
             android:textColorHint="@color/black"
             android:textColor="@color/black"
+            android:background="@android:color/transparent"
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/user_email_register"
+            android:id="@+id/settings_icon"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:hint="URL icon"
+            android:text=""
+            android:inputType="text"
             android:layout_marginTop="15dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
             android:textColorHint="@color/black"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/user_icon_register"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="URL Icon"
-            android:inputType="textUri"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/user_password_register"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="password"
-            android:inputType="textPassword"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
+            android:background="@android:color/transparent"
             android:textSize="18sp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/register_button"
+            android:id="@+id/save_settings_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
             android:textColor="@color/white"
-            android:text="Регистрация"
+            android:text="Сохранить"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textStyle="bold"/>
     </LinearLayout>
-
 </RelativeLayout>

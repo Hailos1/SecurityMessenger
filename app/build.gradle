@@ -46,6 +46,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'org.chromium.net:cronet-embedded:98.4758.101'
+    implementation 'androidx.preference:preference:1.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -58,8 +59,11 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     implementation 'com.loopj.android:android-async-http:1.4.9'
-    implementation "com.microsoft.signalr:signalr:5.0.4"
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+    implementation 'com.microsoft.signalr:signalr:7.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.google.android.material:compose-theme-adapter-3:1.1.1'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
+    implementation 'org.glassfish.tyrus.bundles:tyrus-standalone-client:1.17'
+    implementation 'com.smartarmenia:dotnetcoresignalrclientjava:1.14'
 }

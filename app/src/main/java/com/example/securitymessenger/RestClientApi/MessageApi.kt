@@ -30,7 +30,10 @@ class MessageApi {
                         var message: Message = Message()
                         println(responseBody.getJSONObject(n-1))
                         message.messageUserId = responseBody.getJSONObject(n-1).getString("userId")
+                        message.messageUserName = responseBody.getJSONObject(n-1).getString("userName")
                         message.messageText = responseBody.getJSONObject(n-1).getString("message")
+                        message.messageSendTime = responseBody.getJSONObject(n-1).getString("timeSend")
+                        message.pathsAddition = responseBody.getJSONObject(n-1).getString("pathsAddition")
                         messages.add(message)
                     }
                 }

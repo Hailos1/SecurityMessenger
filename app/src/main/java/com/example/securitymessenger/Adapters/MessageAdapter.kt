@@ -3,11 +3,15 @@ package com.example.securitymessenger.Adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.securitymessenger.Model.Message
 import com.example.securitymessenger.R
+import com.squareup.picasso.Picasso
 
 class MessageAdapter(mContext: Context, mMessages: ArrayList<Message>, isChatCheck: Boolean) :
     RecyclerView.Adapter<MessageAdapter.ViewHolder?>() {
@@ -28,13 +32,17 @@ class MessageAdapter(mContext: Context, mMessages: ArrayList<Message>, isChatChe
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         //var icon: CircleImageView
+        var Img: ImageView
         var UserName: TextView
         var MessageContent: TextView
+        var MessageTime: TextView
 
         init {
             UserName = itemView.findViewById(R.id.user_name_inchat)
+            Img = itemView.findViewById(R.id.message_img)
             //icon = itemView.findViewById(R.id.profile_image_inchat)
             MessageContent = itemView.findViewById(R.id.message_id)
+            MessageTime = itemView.findViewById(R.id.message_time)
         }
     }
 
@@ -56,7 +64,15 @@ class MessageAdapter(mContext: Context, mMessages: ArrayList<Message>, isChatChe
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val message: Message = mMessages[position]
-        holder.UserName.text = message.messageUserId
+        holder.UserName.text = message.messageUserName
         holder.MessageContent.text = message.messageText
+        holder.MessageTime.text = message.messageSendTime.toString()
+        if (message.pathsAddition != "null"){
+            holder.Img.visibility = VISIBLE
+            Picasso.get().load(message.pathsAddition).into(holder.Img)
+        }
+        else{
+            holder.Img.visibility = View.GONE
+        }
     }
 }

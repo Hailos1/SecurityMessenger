@@ -9,30 +9,30 @@
     android:orientation="vertical"
     tools:context=".WelcomeActivity"
     android:background="@android:color/white"
-    android:theme="@style/Theme.Material3.DayNight">
+    android:theme="@style/Theme.Material3.Light">
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:src="@drawable/secchat"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/welcome_enter_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Вход"
-        android:background="@color/black"
+        android:theme="@style/Theme.Material3.Light"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="20dp"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/welcome_register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Регистрация"
-        android:background="@color/black"
+        android:theme="@style/Theme.Material3.Light"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_marginHorizontal="25dp"

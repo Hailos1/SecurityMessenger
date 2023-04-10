@@ -3,18 +3,22 @@ package com.example.securitymessenger.Adapters
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.securitymessenger.ChatActivity
 import com.example.securitymessenger.Fragments.ChatsFragment
 import com.example.securitymessenger.Fragments.SearchFragment
+import com.example.securitymessenger.MainActivity
 import com.example.securitymessenger.Model.User
 import com.example.securitymessenger.R
 import com.example.securitymessenger.RestClientApi.ChatsApi
@@ -75,7 +79,8 @@ class UserAdapter(mContext: Context, mUsers: List<User>, isChatCheck: Boolean) :
     }
     private fun AddChat(boolean: Boolean){
         if (true){
-            (mContext as SearchFragment).requireView().findViewById<EditText>(R.id.search_edit).text.clear()
+            (mContext as MainActivity).setPage(0)
+            ((mContext as MainActivity).supportFragmentManager.fragments.first() as ChatsFragment).refresh()
         }
     }
 }

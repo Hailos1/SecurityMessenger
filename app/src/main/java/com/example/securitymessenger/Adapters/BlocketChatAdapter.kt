@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.securitymessenger.BlockedChatsActivity
 import com.example.securitymessenger.ChatActivity
 import com.example.securitymessenger.MainActivity
 import com.example.securitymessenger.Model.Chat
@@ -16,8 +17,8 @@ import com.example.securitymessenger.R
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
-class ChatAdapter(mContext: Context, mChats: List<Chat>, isChatCheck: Boolean, jwt: String, userId: String) :
-    RecyclerView.Adapter<ChatAdapter.ViewHolder?>() {
+class BlockedChatAdapter(mContext: Context, mChats: List<Chat>, isChatCheck: Boolean, jwt: String, userId: String) :
+    RecyclerView.Adapter<BlockedChatAdapter.ViewHolder?>() {
 
     private val mContext: Context
     private val mChats: List<Chat>
@@ -48,7 +49,7 @@ class ChatAdapter(mContext: Context, mChats: List<Chat>, isChatCheck: Boolean, j
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view: View =
             LayoutInflater.from(mContext).inflate(R.layout.chat_item_layout, viewGroup, false)
-        return ChatAdapter.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -68,7 +69,7 @@ class ChatAdapter(mContext: Context, mChats: List<Chat>, isChatCheck: Boolean, j
             startActivity(mContext, intent, Bundle.EMPTY)
         }
 
-        holder.itemView.setOnLongClickListener { (mContext as MainActivity).dialogBlockChat(chat.chatId!!) }
+        holder.itemView.setOnLongClickListener { (mContext as BlockedChatsActivity).dialogUnblockedChat(chat.chatId!!) }
 
         holder.ChatId.text = chat.chatId.toString()
         holder.ChatName.text = chat.chatName.toString()

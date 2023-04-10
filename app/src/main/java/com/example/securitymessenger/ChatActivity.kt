@@ -1,6 +1,8 @@
 package com.example.securitymessenger
 
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
@@ -17,19 +19,23 @@ import com.example.securitychat.signalR.SignalRListener
 import com.example.securitymessenger.Adapters.MessageAdapter
 import com.example.securitymessenger.Model.Message
 import com.example.securitymessenger.RestClientApi.MessageApi
+import com.example.securitymessenger.Services.NotificationService
 import com.example.securitymessenger.databinding.ActivityChatBinding
 import com.google.gson.JsonElement
-import okhttp3.internal.wait
+import com.squareup.picasso.Picasso
 import org.json.JSONObject
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ChatActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityChatBinding
 
     public lateinit var jwt: String
     private lateinit var userId: String
     private var chatid: Int? = null
+    private var chatImg: String? = null
+    private var chatName: String? = null
 
     private var MessageAdapter: MessageAdapter? = null
     private var mMessages: ArrayList<com.example.securitymessenger.Model.Message>? = null
@@ -46,7 +52,10 @@ class ChatActivity : AppCompatActivity() {
             jwt = arguments.get("jwt").toString()
             userId = arguments.get("userId").toString()
             chatid = arguments.get("chatid").toString().toInt()
+            chatImg = arguments.get("chatImg").toString()
+            chatName = arguments.get("chatName").toString()
         }
+
         binding = ActivityChatBinding.inflate(layoutInflater)
         newMessage = binding.root.findViewById(R.id.new_message)
         sendButton = binding.root.findViewById(R.id.send_button)
@@ -61,8 +70,16 @@ class ChatActivity : AppCompatActivity() {
         layoutManager.reverseLayout = true
         recyclerView!!.layoutManager = layoutManager
         recieveMessages(chatid!!, jwt)
+
+        val ChatName: TextView = binding.root.findViewById<TextView>(R.id.chat_name)
+        ChatName.text = chatName
+        val imageView: ImageView = binding.root.findViewById<ImageView>(R.id.chat_image)
+        Picasso.get().load(chatImg).placeholder(R.drawable.ic_profile).into(imageView)
+
         setContentView(binding.root)
     }
+
+
 
     private fun recieveMessages(chatid: Int, jwt: String) {
         var api = MessageApi()
@@ -74,7 +91,7 @@ class ChatActivity : AppCompatActivity() {
         mMessages = list
         MessageAdapter = MessageAdapter(this, mMessages!!, false)
         recyclerView!!.adapter = MessageAdapter
-        signalRListener = SignalRListener(jwt, chatid!!)
+        signalRListener = SignalRListener(jwt, 600000)
         signalRListener.startConnection { json -> recieveMessage(json) }
     }
 
@@ -85,11 +102,21 @@ class ChatActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        signalRListener.stopConnection()
+        super.onDestroy()
+    }
+
     private fun recieveMessage(json: String){
         val message = Message()
-        message.messageUserId = JSONObject(json).getString("UserId").toString()
-        message.messageText = JSONObject(json).getString("Message").toString()
-        (recyclerView!!.adapter as MessageAdapter).addMessage(message)
-        recyclerView!!.smoothScrollToPosition(0)
+        message.messageChatId = JSONObject(json).getString("ChatId").toInt()
+        if(message.messageChatId == chatid) {
+            message.messageUserId = JSONObject(json).getString("UserId").toString()
+            message.messageUserName = JSONObject(json).getString("UserName").toString()
+            message.messageText = JSONObject(json).getString("Message").toString()
+            message.messageSendTime = JSONObject(json).getString("TimeSend").toString()
+            (recyclerView!!.adapter as MessageAdapter).addMessage(message)
+            recyclerView!!.smoothScrollToPosition(0)
+        }
     }
 }

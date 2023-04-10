@@ -26,7 +26,6 @@
         android:layout_marginTop="10dp"
         android:paddingHorizontal="6dp"
         android:paddingVertical="2dp"/>
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/message_id"
         android:layout_height="wrap_content"
@@ -39,8 +38,42 @@
         android:layout_marginTop="35dp"
         android:paddingVertical="2dp"
         android:paddingHorizontal="6dp"
-        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
         android:layout_marginBottom="10dp"
-        android:text="Message" />
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:textIsSelectable="true"
+        android:text="Message">
+    </com.google.android.material.textview.MaterialTextView>
+
+    <ImageView
+        android:id="@+id/message_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_below="@id/message_id"
+        android:maxWidth="200dp"
+        android:layout_marginEnd="45dp"
+        android:maxHeight="400dp"
+        android:background="@drawable/border_radius"
+        android:visibility="gone"
+        android:scaleType="fitCenter"
+        android:padding="5dp"
+        android:contentDescription="image" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/user_name_inchat"
+        android:layout_alignTop="@id/user_name_inchat"
+        android:layout_marginLeft="5dp"
+        android:maxWidth="300dp"
+        android:minWidth="50dp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="2dp"
+        android:text="time"
+        android:textColor="#979797"
+        android:textStyle="bold" />
 
 </RelativeLayout>

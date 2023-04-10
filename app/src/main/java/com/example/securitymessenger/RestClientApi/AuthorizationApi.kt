@@ -6,7 +6,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler
 import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
 import gen._base._base_java__rjava_resources.srcjar.R.id.icon
-import okhttp3.internal.wait
 
 class AuthorizationApi {
     val url : String = "http://securitychat.ru/api/Authorization"

@@ -1,5 +1,6 @@
 package com.example.securitymessenger.Fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.securitymessenger.Adapters.ChatAdapter
 import com.example.securitymessenger.Model.Chat
 import com.example.securitymessenger.R
@@ -29,18 +31,30 @@ class ChatsFragment(email: String, jwt: String, userId: String) : Fragment() {
     private var chatAdapter: ChatAdapter? = null
     private var mChats: List<Chat>? = null
     private var recyclerView: RecyclerView? = null
+    private var mView: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.fragment_chats, container, false)
+        mView = inflater.inflate(R.layout.fragment_chats, container, false)
         mChats = ArrayList()
-        recyclerView = view.findViewById(R.id.chat_list)
+        recyclerView = mView!!.findViewById(R.id.chat_list)
         recyclerView!!.setHasFixedSize(true)
         recyclerView!!.layoutManager = LinearLayoutManager(context)
         recieveChats(email, jwt)
-        return view
+
+        (mView as SwipeRefreshLayout).setOnRefreshListener{
+            (mView as SwipeRefreshLayout).isRefreshing = true
+            recieveChats(email, jwt)
+        }
+
+        return mView!!
+    }
+
+    public fun refresh(){
+        (mView as SwipeRefreshLayout).isRefreshing = true
+        recieveChats(email, jwt)
     }
 
     private fun recieveChats(email: String, jwt: String) {
@@ -53,5 +67,7 @@ class ChatsFragment(email: String, jwt: String, userId: String) : Fragment() {
         this.mChats = list
         chatAdapter = ChatAdapter(requireContext(), mChats!!, false, jwt, userId)
         recyclerView!!.adapter = chatAdapter
+        chatAdapter!!.notifyDataSetChanged()
+        (mView as SwipeRefreshLayout).isRefreshing = false
     }
 }

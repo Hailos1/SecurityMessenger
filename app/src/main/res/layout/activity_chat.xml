@@ -15,9 +15,28 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            android:theme="@style/Theme.Material3.DayNight"/>
+            android:theme="@style/Theme.Material3.Light">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id = "@+id/chat_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_profile"
+                android:tint="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/chat_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textSize="18sp"
+                android:layout_marginStart="25dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -32,14 +51,13 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/new_message"
-        android:layout_width="340dp"
+        android:layout_width="346dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/white"
+        android:background="@drawable/border_radius"
         android:ems="10"
         android:hint="message..."
         android:inputType="textMultiLine"
@@ -54,10 +72,9 @@
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/white"
+        android:background="@drawable/border_radius"
         android:src="@drawable/convert" />
 </RelativeLayout>
