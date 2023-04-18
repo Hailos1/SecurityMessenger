@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:id="@+id/message_item"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="5dp"
@@ -22,7 +23,7 @@
         android:text="User"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:paddingHorizontal="6dp"
         android:paddingVertical="2dp"/>
@@ -48,18 +49,16 @@
 
     <ImageView
         android:id="@+id/message_img"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_below="@id/message_id"
-        android:maxWidth="200dp"
-        android:layout_marginEnd="45dp"
-        android:maxHeight="400dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:maxWidth="250dp"
         android:background="@drawable/border_radius"
         android:visibility="gone"
         android:scaleType="fitCenter"
-        android:padding="5dp"
-        android:contentDescription="image" />
+        android:adjustViewBounds = "true"
+        android:contentDescription="image"
+        android:layout_below="@id/message_id"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/message_time"

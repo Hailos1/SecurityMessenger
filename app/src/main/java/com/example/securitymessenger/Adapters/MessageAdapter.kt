@@ -1,21 +1,30 @@
 package com.example.securitymessenger.Adapters
 
 import android.content.Context
+import android.text.Layout
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.RelativeLayout.LayoutParams
 import android.widget.TextView
 import androidx.core.net.toUri
+import androidx.core.view.MarginLayoutParamsCompat
+import androidx.core.view.marginStart
 import androidx.recyclerview.widget.RecyclerView
 import com.example.securitymessenger.Model.Message
 import com.example.securitymessenger.R
 import com.squareup.picasso.Picasso
 
-class MessageAdapter(mContext: Context, mMessages: ArrayList<Message>, isChatCheck: Boolean) :
+class MessageAdapter(mContext: Context, mMessages: ArrayList<Message>, isChatCheck: Boolean, userId: String) :
     RecyclerView.Adapter<MessageAdapter.ViewHolder?>() {
     private val mContext: Context
+    private val userId = userId
     val mMessages: ArrayList<Message>
     private var isChatCheck: Boolean
 
@@ -69,7 +78,8 @@ class MessageAdapter(mContext: Context, mMessages: ArrayList<Message>, isChatChe
         holder.MessageTime.text = message.messageSendTime.toString()
         if (message.pathsAddition != "null"){
             holder.Img.visibility = VISIBLE
-            Picasso.get().load(message.pathsAddition).into(holder.Img)
+            println(message.pathsAddition)
+            Picasso.get().load(message.pathsAddition).resize(1920, 0).onlyScaleDown().into(holder.Img)
         }
         else{
             holder.Img.visibility = View.GONE

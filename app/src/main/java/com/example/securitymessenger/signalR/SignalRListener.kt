@@ -1,5 +1,8 @@
 package com.example.securitychat.signalR
 
+import android.content.Context
+import android.provider.Settings.Global.getString
+import com.example.securitymessenger.R
 import com.microsoft.signalr.HubConnectionBuilder
 import com.microsoft.signalr.HubConnectionState
 import com.microsoft.signalr.TransportEnum

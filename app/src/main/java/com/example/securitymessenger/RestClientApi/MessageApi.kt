@@ -7,6 +7,8 @@ import com.loopj.android.http.JsonHttpResponseHandler
 import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
 import org.json.JSONArray
+import org.json.JSONObject
+import java.io.File
 
 class MessageApi {
     public fun GetMessages(chatId: Int, activity: ChatActivity, jwt: String) {
@@ -46,6 +48,42 @@ class MessageApi {
                 headers: Array<out Header>?,
                 error: Throwable?,
                 responseBody: JSONArray?
+            ) {
+                println(responseBody)
+                if (error != null) {
+                    println(error.message)
+                }
+                println(statusCode)
+                println(headers)
+            }
+
+        })
+    }
+
+    public fun SendFile(file: File, jwt: String, func: (Int) -> Unit) {
+        val url : String = "http://securitychat.ru/api/Chat/AddFile"
+        val params = RequestParams()
+        params.put("uploadedFile", file)
+        val client = AsyncHttpClient()
+        //client.addHeader("Authorization", "Bearer $jwt")
+        client.addHeader("Accept", "text/html,application/xhtml+xml,application/xml")
+        client.post(url, params, object: JsonHttpResponseHandler() {
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: JSONObject?
+            ) {
+                if (responseBody != null) {
+                    var addId = responseBody.getString("addition")
+                    func(addId.toInt())
+                }
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                error: Throwable?,
+                responseBody: JSONObject?
             ) {
                 println(responseBody)
                 if (error != null) {

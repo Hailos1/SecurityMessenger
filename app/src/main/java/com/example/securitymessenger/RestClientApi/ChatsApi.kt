@@ -151,6 +151,7 @@ class ChatsApi {
                         chat.chatImg=responseBody.getJSONObject(n).getString("chatImg")
                         chat.isDialog=responseBody.getJSONObject(n).getString("isDialog").toBoolean()
                         chats.add(chat)
+
                     }
                 }
                 func(chats)

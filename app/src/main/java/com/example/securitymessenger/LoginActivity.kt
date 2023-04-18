@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
             prefEditor.putString("useremail", useremail)
             prefEditor.apply()
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            intent.putExtra("jwt", jwt);
+            intent.putExtra("jwt", jwt)
             intent.putExtra("email", useremail)
             startActivity(intent)
             finish()
